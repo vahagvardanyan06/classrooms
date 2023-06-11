@@ -50,8 +50,7 @@ function onSearching(arr){
                     searchDiv.appendChild(onSearchBody(classroom, time, weekday, arr[classroom][time][weekday]));
                      
             }
-
-          
+  
     }
   }
 }

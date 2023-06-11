@@ -31,7 +31,7 @@ function classroomBody(classroom) {
         tdTeacherSubject.appendChild(teacherName);
 
 
-        tdTime.innerHTML = time;
+        tdTime.innerHTML = `${time[0]}${time[1]}:${time[2]}${time[3]}` ;
 
         teacherName.innerHTML = classroom[time][weekday]["teacher"];
         subjectName.innerHTML = classroom[time][weekday]["group"];
