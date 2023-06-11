@@ -1,18 +1,22 @@
 import classroomHeader from "./classroomHeader.js";
 import classroomBody from "./classroomBody.js";
+import performSearch from "./performSearch.js";
+
 const root = document.getElementById("root");
 
  const url = "https://academyclassrooms.com/api/schedule";
 
  fetch(url).then(resp=> resp.json())
             .then(resp=>{
+
                 for(let classroom in resp){
-                   // console.log(resp[classroom]["1000"]["mon"]["teacher"]);
-                    classroomTable(resp[classroom], classroom);
+
+                    root.appendChild(classroomTable(resp[classroom], classroom));
+
+
                 }
             });
 
-// table.appendChild(classroomBody())
 
 
 
@@ -23,9 +27,10 @@ function classroomTable(classroom, classroomName){
 
 
     const table = document.createElement("table");
-    div.appendChild(table);
+    
+
     const h1 = document.createElement("h1");
-    table.appendChild(h1);
+    div.appendChild(h1);
 
     h1.innerHTML = classroomName;
 
@@ -35,10 +40,18 @@ function classroomTable(classroom, classroomName){
     const tbody = classroomBody(classroom,classroomName);
 
     table.appendChild(tbody)
+    div.appendChild(table);
 
+    // root.appendChild(div);
 
-    root.appendChild(div);
+    return div;
     
 }
 
 
+
+document.querySelector(".btn-primary").onclick = performSearch;
+
+
+  
+  

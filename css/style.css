@@ -1,0 +1,25 @@
+
+
+.subjectName{
+    border-radius: 5px;
+}
+
+.teacherName{
+    color: rgb(85, 91, 95);
+}
+
+
+.clases_same_time{
+    border: 1px solid black;
+    cursor: pointer ;
+    font-size: 20px;
+    
+}
+
+.clases_same_time:hover{
+
+    
+    background-color: #939393;
+
+}
+

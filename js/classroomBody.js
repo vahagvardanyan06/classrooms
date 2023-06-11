@@ -1,24 +1,34 @@
 
 
 function classroomBody(classroom) {
+
+
     const tbody = document.createElement("tbody");
+    tbody.className = "classroomBody"
   
     for (let time in classroom) {
         const tr = document.createElement("tr");
+        tr.className = "clases_same_time"
+        
         const tdTime = document.createElement("td");
         tr.appendChild(tdTime);
 
       for (let weekday in classroom[time]) {
 
         const tdTeacherSubject = document.createElement("td");
+        tdTeacherSubject.className = "tdTeacherSubject  "
+                      
 
         tr.appendChild(tdTeacherSubject);
 
         const teacherName = document.createElement("div");
-        const subjectName = document.createElement("span");
+        teacherName.className = "teacherName"
 
-        tdTeacherSubject.appendChild(teacherName);
+        const subjectName = document.createElement("span");
+        subjectName.className = "subjectName"
+
         tdTeacherSubject.appendChild(subjectName);
+        tdTeacherSubject.appendChild(teacherName);
 
 
         tdTime.innerHTML = time;
@@ -27,24 +37,20 @@ function classroomBody(classroom) {
         subjectName.innerHTML = classroom[time][weekday]["group"];
 
 
+        if(classroom[time][weekday]["reserved"] && classroom[time][weekday]["rec"]){
 
+          subjectName.style.backgroundColor = "yellow"
 
-        // const tr = document.createElement("tr");
-        // const tdTime = document.createElement("td");
-        // tdTime.innerHTML = time
-  
-        // const teacherName = document.createElement("div");
-        // teacherName.textContent = classroom[time][weekday]["teacher"];
+        }else if(!classroom[time][weekday]["reserved"] && classroom[time][weekday]["rec"]){
 
-        // const tdGroup = document.createElement("td")
+          subjectName.style.backgroundColor = "red"
 
-        // tdGroup.innerHTML = classroom[time][weekday]["group"];
-        
-        // tdTime.appendChild(teacherName);
+        }else{
 
-        // tr.appendChild(tdTime);
-        // tr.appendChild(tdGroup)
-        // tbody.appendChild(tr);
+          subjectName.style.backgroundColor = "green"
+
+        }
+
 
         tbody.appendChild(tr)
       }

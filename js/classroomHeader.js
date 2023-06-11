@@ -1,7 +1,5 @@
 const weekdays = ["TIME", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-
-
-
+    
 function classroomHeader(){
     
     const thead = document.createElement("thead");
