@@ -1,11 +1,11 @@
-function drawOnSearch(classroom,time, weekday,group){
+function onSearchHeader(){
 
 
-    const searchResult = document.createElement("div");
-          searchResult.className = "searchResult";   
+//     const searchResult = document.createElement("div");
+//           searchResult.className = "searchResult";   
 
-    const title = document.createElement("h4");
-          title.innerHTML = "Search Results";
+//     const title = document.createElement("h4");
+//           title.innerHTML = "Search Results";
 
           
     const resultsTable = document.createElement("table");
@@ -30,7 +30,22 @@ function drawOnSearch(classroom,time, weekday,group){
           scheduleTh.innerHTML = "SCHEDULE";     
 
 
+      //  searchResult.appendChild(title);
+      //  searchResult.appendChild(resultsTable);
+       
+       resultsTable.appendChild(resultsThead);
+
+       resultsThead.appendChild(resultsTr);
+
+       resultsTr.appendChild(groupTh);
+       resultsTr.appendChild(classroomTh);
+       resultsTr.appendChild(scheduleTh);
+
+       return resultsTable;
+
+    
+
 }
 
 
-export default drawOnSearch;
+export default onSearchHeader;

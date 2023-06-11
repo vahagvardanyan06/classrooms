@@ -1,6 +1,10 @@
-import drawOnSearch from "./drawOnSearch.js";
+import onSearchHeader from "./onSearcheHeader.js";
+import onSearchBody from "./onSearchBody.js";
+
+const result = document.getElementById("searchResults");
 
 const searchInput = document.getElementById("search");
+
 
 
 
@@ -25,6 +29,15 @@ function performSearch(arr){
   
 
 function onSearching(arr){
+
+  const searchDiv = document.createElement("div");
+  const title = document.createElement("h1");
+        title.innerHTML = "Search Result"
+  searchDiv.appendChild(title);
+
+  searchDiv.appendChild( onSearchHeader() );
+
+
   for(let classroom in arr){
 
     for (let time in arr[classroom]) {
@@ -33,15 +46,18 @@ function onSearching(arr){
 
 
             if(hasAllLetters(searchInput.value, arr[classroom][time][weekday]["teacher"]) ||  hasAllLetters(searchInput.value, arr[classroom][time][weekday]["group"])){
-
-                  drawOnSearch(classroom, time, weekday,arr[classroom][time][weekday] )
-                  
+                        
+                    searchDiv.appendChild(onSearchBody(classroom, time, weekday, arr[classroom][time][weekday]));
+                     
             }
 
           
     }
   }
 }
+
+
+                          result.appendChild(searchDiv)
 }
 
 
